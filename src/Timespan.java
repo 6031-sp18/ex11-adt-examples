@@ -14,7 +14,10 @@ public class Timespan {
     // Abstraction function:
     //   AF(start, end) = the time interval from start to end, including the endpoints 
     // Safety from rep exposure:
-    //   All fields are private and immutable.  (<=== oops, false!  there's rep exposure!)
+    //   All fields are private and immutable. (<=== oops, not enough! Date is a mutable type,
+    //                                          so this safety argument needs to talk about how
+    //                                          the Date objects are either not exposed or
+    //                                          are defensively copied)
 
     private void checkRep() {
         assert !end.before(start);
